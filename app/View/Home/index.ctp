@@ -98,7 +98,7 @@
             <ul class="thumbnails">
               <li class="span4">
                 <div class="thumbnail">
-                  <img src="img/leave.png" alt="product name">
+                  <img src="img/leave.jpg" alt="product name">
                   <div class="caption">
                     <h3>Leave Management</h3>
                     <p>
@@ -152,6 +152,7 @@
               </li>
             </ul>
           </div>
+        </div>
 <!--          <div class="page-header">-->
 <!--            <h2>Our Services</h2>-->
 <!--          </div>-->
