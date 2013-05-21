@@ -1,188 +1,218 @@
-<?php 
-	echo $this->Html->script('jquery.validate.js');
-	echo $this->Html->script('validate.js');
-	echo $this->Html->script('unload.js');
-	echo $this->Html->css('jquery.validate.css');
-?>
-		<div class="row-fluid">
-			<div class="span2">
-				<!-- Sidebar content -->
-				<a href="#myModal" role="button" class="btn" data-toggle="modal">Login</a>
-				<!-- Modal -->
-				<div style="display: none;" class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				  <div class="modal-header">
-				    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-				    <h3 id="myModalLabel">Login</h3>
-				  </div>
-				  <div class="modal-body">
-				  	<?php 
-						$options = array(
-						'label' => false,
-						'placeholder' => 'Email',
-						'div' => array(
-							'class' => 'controls'
-							)
-						);
-					
-					
-					echo $this->Form->create('UserInfo',array('class' => 'form-horizontal',
-												'url' => array('controller' => 'Home',
-													'action' => 'authenticate')));
-					echo "<div class=\"control-group\">";
-						echo $this->Form->label('inputEmail', 'Email', array('class' => 'control-label'));
-						echo $this->Form->input('inputEmail',$options);
-					echo "</div>";
-					echo "<div class=\"control-group\">";
-						echo $this->Form->label('inputPassword', 'Password', array('class' => 'control-label'));
-						echo $this->Form->input('inputPassword',array('label' => false,
-																  'placeholder' => 'Password',
-																  'type' => 'password',
-																  'div' => array(
-																	'class' => 'controls'
-																	)
-																   ));
-					echo "</div>";
-					echo "<div class=\"control-group\">";
-					echo "<div class=\"controls\">";
-						//echo $this->Form->label(null,'Remember me',array('class' => 'checkbox'));
-					?>
-					<label class="checkbox">
-					<?php 
-					echo $this->Form->checkbox('Remember me',array('label' => false));
-						//echo " Remember me";	
-					echo "Remember Me </label>";
-						echo $this->Form->submit('Login',array('class' => 'btn'));
-						echo $this->Form->end();
-					echo "</div>";
-					echo "</div>";
-					?>		
-				  </div>
-				</div>
-			</div>
-			<div class="span10">
-				<!-- Main content -->
-				<!-- form using cakephp -->
-
-				<?php
-				 $options = array(
-					'label' => false,
-					'div' => array(
-						'class' => 'controls'
-						)
-					);
-					
-					$user_role = array('0' => 'Select Role', '1' => 'Super Administrator', '2' => 'Administrator', '3' =>'Employee', '4' =>'User');
-				?>
-				
-					<?php echo $this->Form->create('Profile',array('class' => 'AdvancedForm',
-														'url' => array('controller' => 'Home',
-														'action' => 'index')));?>
-						<legend> Register with Project<span style="color: #52a8ec"><strong>Ally</strong></span></legend>
-					<table>
-					<tr>
-						<td align="right">Name</td>
-						<td><?php echo $this->Form->input('userName',array('label' => false,
-																		   'type' => 'text')); ?>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">Company</td>
-						<td><?php echo $this->Form->input('companyName',array('label' => false,
-																		   'type' => 'text')); ?>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">Designation</td>
-						<td><?php echo $this->Form->input('userRole',array('label' => false,
-																		   'options' => $user_role)); ?>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">Email</td>
-						<td><?php echo $this->Form->input('inputEmail',array('label' => false,
-																		   'type' => 'text')); ?>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">Password</td>
-						<td><?php echo $this->Form->input('inputPassword',array('label' => false,
-																				'type' => 'password')); ?>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">Confirm Password</td>
-						<td><?php echo $this->Form->input('confirmPassword',array('label' => false,
-																				'type' => 'password')); ?>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><?php echo $this->Form->submit('Sign Up',array('class' => 'btn')); ?></td>
-					</tr>
-					
-					<?php echo $this->Form->end();?>
-				</table>
-				
-					
-					<?php 
-					
-					//at present model name isn't specified....it will be specified as per
-					//requirement.
-					/*echo $this->Form->create('',array('class' => 'form-horizontal'));
-					echo "<div class=\"control-group\">";
-						echo $this->Form->label('inputEmail', 'Email', array('class' => 'control-label'));
-						echo $this->Form->input('inputEmail',$options);
-					echo "</div>";
-					echo "<div class=\"control-group\">";
-						echo $this->Form->label('inputPassword', 'Password', array('class' => 'control-label'));
-						echo $this->Form->input('inputPassword',array('label' => false,
-																  'placeholder' => 'Password',
-																  'type' => 'password',
-																  'div' => array(
-																	'class' => 'controls'
-																	)
-																   ));
-					echo "</div>";
-					echo "<div class=\"control-group\">";
-					echo "<div class=\"controls\">";
-						//echo $this->Form->label(null,'Remember me',array('class' => 'checkbox'));
-					?>
-					<label class="checkbox">
-					<?php 
-					echo $this->Form->checkbox('Remember me',array('label' => false));
-						//echo " Remember me";	
-					echo "Remember Me </label>";
-						echo $this->Form->submit('Login',array('class' => 'btn'));
-						echo $this->Form->end();
-					echo "</div>";
-					echo "</div>";*/
-				?>
-				
-				
-				<!-- Form is commented and kept for reference -->
-				<!-- 
-				<form class="form-horizontal">
-				  <div class="control-group">
-				    <label class="control-label" for="inputEmail">Email</label>
-				    <div class="controls">
-				      <input type="text" id="inputEmail" placeholder="Email">
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <label class="control-label" for="inputPassword">Password</label>
-				    <div class="controls">
-				      <input type="password" id="inputPassword" placeholder="Password">
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <div class="controls">
-				      <label class="checkbox">
-				        <input type="checkbox"> Remember me
-				      </label>
-				      <button type="submit" class="btn">Sign in</button>
-				    </div>
-				  </div>
-				</form>
-				 -->
-			</div>
-		</div>
+      <!-- Start: slider -->
+      <div class="slider">
+        <div class="container-fluid">
+          <div id="heroSlider" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="active item">
+                <div class="hero-unit">
+                  <div class="row-fluid">
+                    <div class="span7 marketting-info">
+                      <h1>Project Management</h1>
+                      <p>
+                        ProjectAlly offers a comprehensive Project Management system which would enable the company to carry out
+                        effective implementation of the project.
+                      </p>
+                      <h3>
+                          <?php echo $this->Html->link('Learn More', array('controller' => 'Home', 'action' => 'signUp'),
+                                                                     array('class' => 'btn'));?>
+                      </h3>                      
+                    </div>
+                    <div class="span5">
+                      <img src="img/project-management.jpg" class="thumbnail">
+                    </div>
+                  </div>                  
+                </div>
+              </div>
+              <div class="item">
+                <div class="hero-unit">
+                  <div class="row-fluid">
+                    <div class="span7 marketting-info">
+                      <h1>Employee Management</h1>
+                      <p>
+                        Hunting a system that supports employee as well as project management...?...ProjectAlly is the answer.
+                        It integrates Employee Management system with Project Management providing a great amount flexibility.
+                      </p>
+                      <h3>
+                          <?php echo $this->Html->link('Learn More', array('controller' => 'Home', 'action' => 'signUp'),
+                                                                     array('class' => 'btn'));?>
+                          <br>
+                      </h3>                      
+                    </div>
+                    <div class="span5">
+                      <img src="img/employee-management.jpg" class="thumbnail">
+                    </div>
+                  </div>                  
+                </div>
+              </div>
+              <div class="item">
+                <div class="hero-unit">
+                  <div class="row-fluid">
+                    <div class="span7 marketting-info">
+                      <h1>Bug Tracking</h1>
+                      <p>
+                        Tired of client reporting bugs in the system...?...Unable to track them...?...ProjectAlly comes to resort
+                          with its advanced bug tracking system to assist you in your job.
+                      </p>
+                      <h3>
+                          <?php echo $this->Html->link('Learn More', array('controller' => 'Home', 'action' => 'signUp'),
+                                                                     array('class' => 'btn'));?>
+                      </h3>                      
+                    </div>
+                    <div class="span5">
+                      <img src="img/bugtracker.jpg" class="thumbnail">
+                    </div>
+                  </div>                  
+                </div>
+              </div>
+              <div class="item">
+                <div class="hero-unit">
+                  <div class="row-fluid">
+                    <div class="span7 marketting-info">
+                      <h1>And Many More...</h1>
+                      <p>
+                          Some what are you waiting for...There is lot in store for you people.. Come make a plunge into ProjectAlly...
+                      </p>
+                      <h3>
+                          <?php echo $this->Html->link('Learn More', array('controller' => 'Home', 'action' => 'signUp'),
+                                                                     array('class' => 'btn'));?>
+                          <br><br><br><br>
+                      </h3>                      
+                    </div>
+                    <div class="span5">
+                      <img src="img/manymore.png" class="thumbnail">
+                    </div>
+                  </div>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End: slider -->
+      <!-- Start: PRODUCT LIST -->
+        <div class="container">
+          <div class="page-header">
+            <h2>Our Services</h2>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span4">
+                <div class="thumbnail">
+                  <img src="img/leave.jpg" alt="product name">
+                  <div class="caption">
+                    <h3>Leave Management</h3>
+                    <p>
+                      Few attractive words about your product.Few attractive words about your product.
+                      Few attractive words about your product.Few attractive words about your product.
+                    </p>
+                  </div>
+                  <div class="widget-footer">
+                    <p>
+                      <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
+                      <a href="product.html" class="btn">Read more</a>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span4">
+                <div class="thumbnail">
+                  <img src="img/calendarhome.jpg" alt="product name">
+                  <div class="caption">
+                    <h3>Event based Calendar</h3>
+                    <p>
+                      Few attractive words about your product.Few attractive words about your product.
+                      Few attractive words about your product.Few attractive words about your product.
+                    </p>
+                  </div>
+                  <div class="widget-footer">
+                    <p>
+                      <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
+                      <a href="product.html" class="btn">Read more</a>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span4">
+                <div class="thumbnail">
+                  <img src="img/bugtrackerhome.jpg" alt="product name">
+                  <div class="caption">
+                    <h3>Bugs and Features</h3>
+                    <p>
+                      Few attractive words about your product.Few attractive words about your product.
+                      Few attractive words about your product.Few attractive words about your product.
+                    </p>
+                  </div>
+                  <div class="widget-footer">
+                    <p>
+                      <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
+                      <a href="product.html" class="btn">Read more</a>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+<!--          <div class="page-header">-->
+<!--            <h2>Our Services</h2>-->
+<!--          </div>-->
+<!--          <div class="row-fluid">-->
+<!--            <ul class="thumbnails">-->
+<!--              <li class="span4">-->
+<!--                <div class="thumbnail">-->
+<!--                  <img src="img/placeholder-360x200.jpg" alt="product name">-->
+<!--                  <div class="caption">-->
+<!--                    <h3>Service title</h3>-->
+<!--                    <p>-->
+<!--                      Few attractive words about your service.Few attractive words about your service.-->
+<!--                      Few attractive words about your service.Few attractive words about your service.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                  <div class="widget-footer">-->
+<!--                    <p>-->
+<!--                      <a href="#" class="btn btn-primary">Try for free</a>&nbsp;-->
+<!--                      <a href="product.html" class="btn">Read more</a>-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </li>-->
+<!--              <li class="span4">-->
+<!--                <div class="thumbnail">-->
+<!--                  <img src="img/placeholder-360x200.jpg" alt="product name">-->
+<!--                  <div class="caption">-->
+<!--                    <h3>Service title</h3>-->
+<!--                    <p>-->
+<!--                      Few attractive words about your service.Few attractive words about your service.-->
+<!--                      Few attractive words about your service.Few attractive words about your service.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                  <div class="widget-footer">-->
+<!--                    <p>-->
+<!--                      <a href="#" class="btn btn-primary">Try for free</a>&nbsp;-->
+<!--                      <a href="product.html" class="btn">Read more</a>-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </li>-->
+<!--              <li class="span4">-->
+<!--                <div class="thumbnail">-->
+<!--                  <img src="img/placeholder-360x200.jpg" alt="product name">-->
+<!--                  <div class="caption">-->
+<!--                    <h3>Service title</h3>-->
+<!--                    <p>-->
+<!--                      Few attractive words about your service.Few attractive words about your service.-->
+<!--                      Few attractive words about your service.Few attractive words about your service.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                  <div class="widget-footer">-->
+<!--                    <p>-->
+<!--                      <a href="#" class="btn btn-primary">Try for free</a>&nbsp;-->
+<!--                      <a href="product.html" class="btn">Read more</a>-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+      <!-- End: PRODUCT LIST -->
